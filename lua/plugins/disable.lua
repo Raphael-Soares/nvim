@@ -1,3 +1,5 @@
 -- Disable anoying things.
 
-return {}
+return {
+    -- { "akinsho/bufferline.nvim", enabled = false },
+}

@@ -1,11 +1,11 @@
 return {
     "akinsho/toggleterm.nvim",
     opts = function(_, opts)
-        opts.size = 20
+        opts.size = 21
         opts.open_mapping = "<C-/>"
         opts.hide_numbers = true
         opts.shade_terminals = true
-        opts.shading_factor = 2
+        opts.shading_factor = 3
         opts.start_in_insert = true
         opts.persist_size = true
         opts.direction = "horizontal"
@@ -14,7 +14,7 @@ return {
         opts.autochdir = true
         opts.float_opts = {
             border = "curved",
-            winblend = 0,
+            winblend = 1,
             highlights = {
                 background = "Normal",
                 border = "Normal",
