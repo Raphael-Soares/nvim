@@ -21,7 +21,14 @@ end
 local vue_typescript_plugin = require("mason-registry").get_package("vue-language-server"):get_install_path()
     .. "/node_modules/@vue/language-server"
     .. "/node_modules/@vue/typescript-plugin"
--- configuring single server, example: typescript
+
+lspconfig.jdtls.setup({
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
+    filetypes = { "java" },
+})
+
 lspconfig.ts_ls.setup({
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
