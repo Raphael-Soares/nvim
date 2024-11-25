@@ -60,6 +60,10 @@ map({ "n", "t" }, "<A-h>", function()
     terminal.toggle({ pos = "sp", id = "htoggleTerm" })
 end, { desc = "terminal toggleable horizontal term" })
 
+map({ "n", "t" }, "<C-_>", function()
+    terminal.toggle({ pos = "sp", id = "htoggleTerm" })
+end, { desc = "terminal toggleable horizontal term" })
+
 map({ "n", "t" }, "<A-f>", function()
     terminal.toggle({ pos = "float", id = "floatTerm" })
 end, { desc = "terminal toggle floating term" })

@@ -1,5 +1,6 @@
 local options = {
     ensure_installed = {
+        "vue",
         "bash",
         "fish",
         "lua",
@@ -10,17 +11,14 @@ local options = {
         "vim",
         "vimdoc",
         "yaml",
-        "vue",
         "java",
         "typescript",
+        "javascript",
         "tsx",
+        "css",
     },
 
-    highlight = {
-        enable = true,
-        use_languagetree = true,
-    },
-
+    highlight = { enable = true },
     indent = { enable = true },
 }
 
