@@ -1,6 +1,7 @@
 local options = {
     ensure_installed = {
         "vue",
+        "scss",
         "bash",
         "fish",
         "lua",

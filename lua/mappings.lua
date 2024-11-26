@@ -25,8 +25,12 @@ map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Line Up in Insert Mo
 map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Selection Down" })
 map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Selection Up" })
 
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Previous Buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<S-h>", function()
+    require("nvchad.tabufline").next()
+end, { desc = "Previous Buffer" })
+map("n", "<S-l>", function()
+    require("nvchad.tabufline").prev()
+end, { desc = "Next Buffer" })
 
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
@@ -51,7 +55,7 @@ map("n", "<leader>v", function()
     terminal.new({ pos = "vsp" })
 end, { desc = "terminal new vertical term" })
 
--- toggleable
+-- toggleable terminal
 map({ "n", "t" }, "<A-v>", function()
     terminal.toggle({ pos = "vsp", id = "vtoggleTerm" })
 end, { desc = "terminal toggleable vertical term" })
