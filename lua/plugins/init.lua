@@ -59,14 +59,8 @@ return {
         end,
     },
     {
-        "HiPhish/rainbow-delimiters.nvim",
-    },
-
-    {
         "nvim-telescope/telescope.nvim",
-        keys = {
-            { "<leader><leader>", "<cmd>Telescope find_files<CR>", desc = "Buscar arquivos (Find Files)" },
-        },
+        keys = { { "<leader><leader>", "<cmd>Telescope find_files<CR>", desc = "Buscar arquivos (Find Files)" } },
         opts = function(_, conf)
             conf.defaults.mappings.i = {
                 ["<C-j>"] = require("telescope.actions").move_selection_next,
@@ -106,5 +100,11 @@ return {
         config = function()
             require("java").setup({})
         end,
+    },
+
+    {
+        "folke/ts-comments.nvim",
+        opts = {},
+        event = "VeryLazy",
     },
 }

@@ -38,6 +38,7 @@
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "d803ba7668ba390aa4cfd3580183c982cac36fd8" },
   "spring-boot.nvim": { "branch": "main", "commit": "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0" },
   "telescope.nvim": { "branch": "master", "commit": "85922dde3767e01d42a08e750a773effbffaea3e" },
+  "ts-comments.nvim": { "branch": "main", "commit": "2002692ad1d3f6518d016550c20c2a890f0cbf0e" },
   "ui": { "branch": "v3.0", "commit": "8cc265d1fc663a4bcd39c68e60a76adef6df031e" },
   "volt": { "branch": "main", "commit": "8d35e03c70490190149a77c59155618ef4370721" },
   "which-key.nvim": { "branch": "main", "commit": "68e37e12913a66b60073906f5d3f14dee0de19f2" }

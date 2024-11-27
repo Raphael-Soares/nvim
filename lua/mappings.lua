@@ -25,10 +25,10 @@ map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Line Up in Insert Mo
 map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Selection Down" })
 map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Selection Up" })
 
-map("n", "<S-h>", function()
+map("n", "<S-l>", function()
     require("nvchad.tabufline").next()
 end, { desc = "Previous Buffer" })
-map("n", "<S-l>", function()
+map("n", "<S-h>", function()
     require("nvchad.tabufline").prev()
 end, { desc = "Next Buffer" })
 

@@ -7,6 +7,8 @@ lspconfig.servers = {
     "lua_ls",
     "ts_ls",
     "volar",
+    "html",
+    "cssls",
 }
 
 local default_servers = { "html", "cssls", "volar" }
