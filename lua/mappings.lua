@@ -11,12 +11,13 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("n", "+", "<C-a>", { desc = "Increment Number" })
 map("n", "-", "<C-x>", { desc = "Decrement Number" })
 
-map("n", "dw", 'vb"_d', { desc = "Delete Word Backwards" })
-
 map("n", "<C-a>", "gg<S-v>G", { desc = "Select All" })
 
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down and Center" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up and Center" })
+
+map("n", "<C-j>", "<C-d>zz", { desc = "Scroll Down and Center" })
+map("n", "<C-k>", "<C-u>zz", { desc = "Scroll Up and Center" })
 
 map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Line Down" })
 map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Line Up" })

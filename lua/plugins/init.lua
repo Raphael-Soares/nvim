@@ -1,5 +1,30 @@
 return {
     {
+        "nvim-java/nvim-java",
+        lazy = false,
+        dependencies = {
+            "nvim-java/lua-async-await",
+            "nvim-java/nvim-java-core",
+            "nvim-java/nvim-java-test",
+            "nvim-java/nvim-java-dap",
+            "MunifTanjim/nui.nvim",
+            "neovim/nvim-lspconfig",
+            "mfussenegger/nvim-dap",
+            {
+                "williamboman/mason.nvim",
+                opts = {
+                    registries = {
+                        "github:nvim-java/mason-registry",
+                        "github:mason-org/mason-registry",
+                    },
+                },
+            },
+        },
+        config = function()
+            require("java").setup({})
+        end,
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPre", "BufNewFile" },
         config = function()
@@ -8,8 +33,28 @@ return {
     },
 
     {
+        "smoka7/multicursors.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "nvimtools/hydra.nvim",
+        },
+        opts = {
+
+            hint_config = false,
+        },
+        cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+        keys = {
+            {
+                mode = { "v", "n" },
+                "<Leader>d",
+                "<cmd>MCstart<cr>",
+                desc = "Create a selection for selected text or word under the cursor",
+            },
+        },
+    },
+    {
         "stevearc/conform.nvim",
-        event = "BufWritePre", -- uncomment for format on save
+        event = "BufWritePre",
         opts = require("configs.conform"),
     },
 
@@ -52,20 +97,23 @@ return {
     },
 
     {
-        "nvim-tree/nvim-tree.lua",
-        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-        opts = function()
-            return require("configs.nvimtree")
-        end,
-    },
-    {
         "nvim-telescope/telescope.nvim",
         keys = { { "<leader><leader>", "<cmd>Telescope find_files<CR>", desc = "Buscar arquivos (Find Files)" } },
         opts = function(_, conf)
-            conf.defaults.mappings.i = {
-                ["<C-j>"] = require("telescope.actions").move_selection_next,
-                ["<Esc>"] = require("telescope.actions").close,
-            }
+            conf.defaults = vim.tbl_deep_extend("force", conf.defaults or {}, {
+                mappings = {
+                    i = {
+                        ["<C-j>"] = require("telescope.actions").move_selection_next,
+                        ["<Esc>"] = require("telescope.actions").close,
+                    },
+                },
+                file_ignore_patterns = {
+                    "target", -- Ignorar a pasta `target`
+                    "%.class", -- Ignorar arquivos `.class`
+                    "%.jar", -- Ignorar arquivos `.jar`
+                },
+            })
+
             return conf
         end,
     },
@@ -73,7 +121,6 @@ return {
     {
         "windwp/nvim-ts-autotag",
         event = { "BufReadPre", "BufNewFile" },
-        opts = {},
     },
 
     {
@@ -106,5 +153,13 @@ return {
         "folke/ts-comments.nvim",
         opts = {},
         event = "VeryLazy",
+    },
+
+    {
+        "nvim-tree/nvim-tree.lua",
+        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+        opts = function()
+            return require("configs.nvimtree")
+        end,
     },
 }

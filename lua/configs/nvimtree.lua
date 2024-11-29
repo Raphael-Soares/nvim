@@ -9,6 +9,9 @@ return {
         enable = true,
         update_root = false,
     },
+    diagnostics = {
+        enable = true,
+    },
     view = {
         width = 45,
         preserve_window_proportions = true,
