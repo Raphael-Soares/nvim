@@ -4,6 +4,9 @@ local map = vim.keymap.set
 local buffer = require("nvchad.tabufline")
 local terminal = require("nvchad.term")
 
+-- Disable mappings
+local nomap = vim.keymap.del
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
@@ -32,6 +35,8 @@ end, { desc = "Previous Buffer" })
 map("n", "<S-h>", function()
     require("nvchad.tabufline").prev()
 end, { desc = "Next Buffer" })
+
+map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
 
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
@@ -74,3 +79,5 @@ map({ "n", "t" }, "<A-f>", function()
 end, { desc = "terminal toggle floating term" })
 
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+
+nomap("n", "<leader>bn")

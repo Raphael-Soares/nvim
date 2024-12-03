@@ -13,7 +13,7 @@ return {
         enable = true,
     },
     view = {
-        width = 45,
+        width = 55,
         preserve_window_proportions = true,
     },
     renderer = {

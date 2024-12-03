@@ -2,7 +2,6 @@ require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require("lspconfig")
 local nvlsp = require("nvchad.configs.lspconfig")
-
 lspconfig.servers = {
     "lua_ls",
     "ts_ls",
