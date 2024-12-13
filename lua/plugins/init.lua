@@ -1,27 +1,11 @@
 return {
     {
-        "nvim-java/nvim-java",
-        lazy = false,
-        dependencies = {
-            "nvim-java/lua-async-await",
-            "nvim-java/nvim-java-core",
-            "nvim-java/nvim-java-test",
-            "nvim-java/nvim-java-dap",
-            "MunifTanjim/nui.nvim",
-            "mfussenegger/nvim-dap",
-        },
-        config = function()
-            require("java").setup({})
-        end,
-    },
-    {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("configs.treesitter")
         end,
     },
-
     {
         "smoka7/multicursors.nvim",
         event = "VeryLazy",
@@ -110,33 +94,14 @@ return {
 
     {
         "windwp/nvim-ts-autotag",
-        event = { "BufReadPre", "BufNewFile" },
-    },
-
-    {
-        "nvim-java/nvim-java",
-        lazy = false,
-        dependencies = {
-            "nvim-java/lua-async-await",
-            "nvim-java/nvim-java-core",
-            "nvim-java/nvim-java-test",
-            "nvim-java/nvim-java-dap",
-            "MunifTanjim/nui.nvim",
-            "neovim/nvim-lspconfig",
-            "mfussenegger/nvim-dap",
-            {
-                "williamboman/mason.nvim",
-                opts = {
-                    registries = {
-                        "github:nvim-java/mason-registry",
-                        "github:mason-org/mason-registry",
-                    },
-                },
-            },
-        },
+        dependencies = "nvim-treesitter/nvim-treesitter",
         config = function()
-            require("java").setup({})
+            require("nvim-ts-autotag").setup({
+                -- your config
+            })
         end,
+        lazy = true,
+        event = "VeryLazy",
     },
 
     {

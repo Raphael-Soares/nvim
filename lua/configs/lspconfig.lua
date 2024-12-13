@@ -23,13 +23,6 @@ local vue_typescript_plugin = require("mason-registry").get_package("vue-languag
     .. "/node_modules/@vue/language-server"
     .. "/node_modules/@vue/typescript-plugin"
 
-lspconfig.jdtls.setup({
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-    filetypes = { "java" },
-})
-
 lspconfig.ts_ls.setup({
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
@@ -46,10 +39,10 @@ lspconfig.ts_ls.setup({
     },
     filetypes = {
         "javascript",
-        "javascriptreact",
-        "javascript.jsx",
         "typescript",
+        "javascriptreact",
         "typescriptreact",
+        "javascript.jsx",
         "typescript.tsx",
         "vue",
     },
