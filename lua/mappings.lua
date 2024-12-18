@@ -12,7 +12,7 @@ map("n", ";", ":", { desc = "Enter command mode" })
 map({ "i", "x", "n", "s" }, "<c-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "+", "<c-a>", { desc = "Increment number" })
 map("n", "-", "<c-x>", { desc = "Decrement number" })
-map("n", "<c-a>", "gg<s-v>g", { desc = "Select all" })
+map("n", "<c-a>", "gg<s-v>G", { desc = "Select all" })
 map("n", "<c-d>", "<c-d>zz", { desc = "Scroll down and center" })
 map("n", "<c-u>", "<c-u>zz", { desc = "Scroll up and center" })
 
