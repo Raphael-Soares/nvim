@@ -7,6 +7,14 @@ return {
         end,
     },
     {
+        "NvChad/nvim-colorizer.lua",
+        opts = {
+            user_default_options = {
+                tailwind = true,
+            },
+        },
+    },
+    {
         "smoka7/multicursors.nvim",
         event = "VeryLazy",
         dependencies = {
@@ -116,5 +124,22 @@ return {
         opts = function()
             return require("configs.nvimtree")
         end,
+    },
+    {
+        "linux-cultist/venv-selector.nvim",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "mfussenegger/nvim-dap",
+            "mfussenegger/nvim-dap-python", --optional
+            { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+        },
+        lazy = false,
+        branch = "regexp", -- This is the regexp branch, use this for the new version
+        config = function()
+            require("venv-selector").setup()
+        end,
+        keys = {
+            { "<leader>cv", "<cmd>VenvSelect<cr>" },
+        },
     },
 }
