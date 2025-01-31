@@ -8,6 +8,19 @@ M.base46 = {
         ["@comment"] = { italic = true },
     },
 }
+M.ui = {
+    statusline = {
+        order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd" },
+        modules = {
+            abc = function()
+                return "hi"
+            end,
+
+            xyz = "hi",
+            f = "%F",
+        },
+    },
+}
 
 local is_wsl = vim.fn.has("wsl") == 1
 
