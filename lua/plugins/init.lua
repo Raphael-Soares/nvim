@@ -94,6 +94,7 @@ return {
                 file_ignore_patterns = {
                     "target", -- Ignorar a pasta `target`
                     "%.class", -- Ignorar arquivos `.class`
+                    "%.git", -- Ignorar arquivos `.git`
                     "%.jar", -- Ignorar arquivos `.jar`
                 },
             })
