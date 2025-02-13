@@ -29,7 +29,6 @@ local is_wsl = vim.fn.has("wsl") == 1
 -- WSL Clipboard support with win32yank.exe
 if is_wsl then
     local win32yank = "/mnt/c/Users/raphael.soares/win32yank.exe"
-
     vim.g.clipboard = {
         name = "win32yank",
         copy = {
