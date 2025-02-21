@@ -69,15 +69,6 @@ map("n", "<leader>v", function()
     terminal.new({ pos = "vsp" })
 end, { desc = "terminal new vertical term" })
 
--- toggleable terminal
-map({ "n", "t" }, "<A-v>", function()
-    terminal.toggle({ pos = "vsp", id = "vtoggleTerm" })
-end, { desc = "terminal toggleable vertical term" })
-
-map({ "n", "t" }, "<A-h>", function()
-    terminal.toggle({ pos = "sp", id = "htoggleTerm" })
-end, { desc = "terminal toggleable horizontal term" })
-
 map({ "n", "t" }, "<C-_>", function()
     terminal.toggle({ pos = "sp", id = "htoggleTerm" })
 end, { desc = "terminal toggleable horizontal term" })
