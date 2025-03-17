@@ -61,21 +61,9 @@ map("n", "<leader>ba", function()
     buffer.closeAllBufs()
 end, { desc = "Delete All Buffers" })
 
-map("n", "<leader>h", function()
-    terminal.new({ pos = "sp" })
-end, { desc = "terminal new horizontal term" })
-
-map("n", "<leader>v", function()
-    terminal.new({ pos = "vsp" })
-end, { desc = "terminal new vertical term" })
-
 map({ "n", "t" }, "<C-_>", function()
-    terminal.toggle({ pos = "sp", id = "htoggleTerm" })
-end, { desc = "terminal toggleable horizontal term" })
-
-map({ "n", "t" }, "<A-f>", function()
     terminal.toggle({ pos = "float", id = "floatTerm" })
-end, { desc = "terminal toggle floating term" })
+end, { desc = "Toggles floating terminal" })
 
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
