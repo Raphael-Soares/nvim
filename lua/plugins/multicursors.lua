@@ -5,7 +5,6 @@ return {
         "nvimtools/hydra.nvim",
     },
     opts = {
-
         hint_config = false,
     },
     cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },

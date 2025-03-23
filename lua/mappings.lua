@@ -68,3 +68,5 @@ end, { desc = "Toggles floating terminal" })
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 nomap("n", "<leader>bn")
+nomap("n", "<leader>v")
+nomap("n", "<leader>h")

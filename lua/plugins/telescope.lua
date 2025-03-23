@@ -1,8 +1,8 @@
 return {
     "nvim-telescope/telescope.nvim",
     keys = {
-        { "<leader><leader>", "<cmd>Telescope find_files hidden=true<CR>", desc = "Buscar arquivos (Find Files)" },
-        { "<leader>fr", "<cmd>Telescope registers<CR>", desc = "Mostrar os últimos registros de copiar e colar" }, -- Adiciona a tecla para exibir os registros
+        { "<leader><leader>", "<cmd>Telescope find_files hidden=true<CR>", desc = "Find Files" },
+        { "<leader>fr", "<cmd>Telescope registers<CR>", desc = "Mostrar os últimos registros de copiar e colar" },
     },
     opts = function(_, conf)
         conf.defaults = vim.tbl_deep_extend("force", conf.defaults or {}, {
