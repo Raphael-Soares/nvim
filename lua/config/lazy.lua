@@ -23,7 +23,7 @@ require("lazy").setup({
         lazy = false,
         version = false,
     },
-    install = { colorscheme = { "onedark", "habamax" } },
+    install = { colorscheme = { "onedark" } },
     checker = {
         enabled = true,
         notify = false,
