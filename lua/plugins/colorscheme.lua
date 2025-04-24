@@ -1,40 +1,52 @@
 return {
+    -- LazyVim (escolher tema padrão aqui)
     {
-        "navarasu/onedark.nvim",
-        priority = 10000,
-        lazy = false,
+        "LazyVim/LazyVim",
         opts = {
-            style = "darker",
+            colorscheme = "onedark",
         },
     },
+    --
+    -- One Dark
+    { "navarasu/onedark.nvim", opts = { style = "darker" } },
 
-    {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-    },
+    -- Gruvbox
+    { "ellisonleao/gruvbox.nvim" },
+
+    -- Gruvbox Material
     {
         "sainnhe/gruvbox-material",
         lazy = false,
         priority = 1000,
         config = function()
             -- Estilo mais próximo do Gruvbox original
-            vim.g.gruvbox_material_background = "medium" -- opções: 'hard', 'medium', 'soft'
-            vim.g.gruvbox_material_foreground = "original" -- opções: 'material', 'mix', 'original'
             vim.g.gruvbox_material_enable_italic = true
             vim.g.gruvbox_material_enable_bold = true
-            vim.g.gruvbox_material_ui_contrast = "high"
-            vim.g.gruvbox_material_disable_italic_comment = true
-            vim.g.gruvbox_material_statusline_style = "default"
-            vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
-            vim.g.gruvbox_material_sign_column_background = "none"
-            vim.g.gruvbox_material_visual = "grey background"
+            vim.g.gruvbox_material_disable_italic_comment = false
         end,
     },
 
-    {
-        "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "gruvbox-material",
-        },
-    },
+    -- Everforest
+    { "neanias/everforest-nvim" },
+
+    -- Kanagawa
+    { "rebelot/kanagawa.nvim" },
+
+    -- TokyoNight
+    { "folke/tokyonight.nvim" },
+
+    -- Catppuccin
+    { "catppuccin/nvim" },
+
+    -- Nightfox (com todas as variantes)
+    { "EdenEast/nightfox.nvim" },
+
+    -- Monokai Pro
+    { "tanvirtin/monokai.nvim" },
+
+    -- Oxocarbon
+    { "nyoom-engineering/oxocarbon.nvim" },
+
+    -- Rose Pine
+    { "rose-pine/neovim" },
 }
