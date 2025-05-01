@@ -27,5 +27,6 @@ return {
 
         require("plugins.lang.typescript").setup()
         require("plugins.lang.python").setup()
+        require("plugins.lang.clang").setup()
     end,
 }
