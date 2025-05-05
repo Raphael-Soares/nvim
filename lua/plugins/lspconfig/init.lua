@@ -8,15 +8,12 @@ return {
 
         lspconfig.servers = {
             "lua_ls",
-            "ts_ls",
-            "volar",
             "html",
             "cssls",
-            "pyright",
             "tailwindcss",
         }
 
-        local default_servers = { "html", "tailwindcss", "cssls", "pyright" }
+        local default_servers = { "html", "tailwindcss", "cssls" }
         for _, lsp in ipairs(default_servers) do
             lspconfig[lsp].setup({
                 on_attach = nvlsp.on_attach,
@@ -25,8 +22,8 @@ return {
             })
         end
 
-        require("plugins.lang.typescript").setup()
-        require("plugins.lang.python").setup()
-        require("plugins.lang.clang").setup()
+        require("plugins.lspconfig.lang.typescript").setup()
+        require("plugins.lspconfig.lang.python").setup()
+        require("plugins.lspconfig.lang.clang").setup()
     end,
 }
