@@ -1,7 +1,9 @@
+-- lua/plugins/lspconfig/lang/typescript.lua
 local M = {}
 
 M.setup = function()
     local lspconfig = require("lspconfig")
+    local keymaps = require("plugins.lspconfig.keymaps")
     local nvlsp = require("nvchad.configs.lspconfig")
     local vue_typescript_plugin = require("mason-registry").get_package("vue-language-server"):get_install_path()
         .. "/node_modules/@vue/language-server"
@@ -10,7 +12,7 @@ M.setup = function()
         .. "/mason/packages/typescript-language-server/node_modules/typescript/lib"
 
     lspconfig.volar.setup({
-        on_attach = nvlsp.on_attach,
+        on_attach = keymaps.on_attach,
         on_init = nvlsp.on_init,
         capabilities = nvlsp.capabilities,
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
@@ -20,7 +22,7 @@ M.setup = function()
     })
 
     lspconfig.ts_ls.setup({
-        on_attach = nvlsp.on_attach,
+        on_attach = keymaps.on_attach,
         on_init = nvlsp.on_init,
         capabilities = nvlsp.capabilities,
         init_options = {

@@ -5,6 +5,7 @@ return {
 
         local lspconfig = require("lspconfig")
         local nvlsp = require("nvchad.configs.lspconfig")
+        local keymaps = require("plugins.lspconfig.keymaps")
 
         lspconfig.servers = {
             "lua_ls",
@@ -16,7 +17,7 @@ return {
         local default_servers = { "html", "tailwindcss", "cssls" }
         for _, lsp in ipairs(default_servers) do
             lspconfig[lsp].setup({
-                on_attach = nvlsp.on_attach,
+                on_attach = keymaps.on_attach,
                 on_init = nvlsp.on_init,
                 capabilities = nvlsp.capabilities,
             })
