@@ -12,6 +12,8 @@ return {
             "html",
             "cssls",
             "tailwindcss",
+            "vue_ls",
+            "ts_ls",
         }
 
         local default_servers = { "html", "tailwindcss", "cssls" }

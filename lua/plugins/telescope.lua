@@ -6,6 +6,7 @@ return {
     keys = {
         { "<leader><leader>", "<cmd>Telescope find_files hidden=true<CR>", desc = "Find Files" },
         { "<leader>p", "<cmd>Telescope registers<CR>", desc = "Mostrar os últimos registros de copiar e colar" },
+        { "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Arquivos Recentes" },
         {
             "<leader>ca",
             function()

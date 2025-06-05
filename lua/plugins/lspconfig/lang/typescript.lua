@@ -5,13 +5,14 @@ M.setup = function()
     local lspconfig = require("lspconfig")
     local keymaps = require("plugins.lspconfig.keymaps")
     local nvlsp = require("nvchad.configs.lspconfig")
-    local vue_typescript_plugin = require("mason-registry").get_package("vue-language-server"):get_install_path()
-        .. "/node_modules/@vue/language-server"
-        .. "/node_modules/@vue/typescript-plugin"
+
+    local vue_typescript_plugin = vim.fn.stdpath("data")
+        .. "/mason/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin"
+
     local typescript_language_server = vim.fn.stdpath("data")
         .. "/mason/packages/typescript-language-server/node_modules/typescript/lib"
 
-    lspconfig.volar.setup({
+    lspconfig.vue_ls.setup({
         on_attach = keymaps.on_attach,
         on_init = nvlsp.on_init,
         capabilities = nvlsp.capabilities,
