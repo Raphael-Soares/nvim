@@ -7,19 +7,6 @@ return {
         { "<leader><leader>", "<cmd>Telescope find_files hidden=true<CR>", desc = "Find Files" },
         { "<leader>p", "<cmd>Telescope registers<CR>", desc = "Mostrar os últimos registros de copiar e colar" },
         { "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Arquivos Recentes" },
-        {
-            "<leader>ca",
-            function()
-                local builtin = require("telescope.builtin")
-                if builtin.lsp_code_actions then
-                    builtin.lsp_code_actions()
-                else
-                    vim.lsp.buf.code_action() -- Fallback para a API nativa
-                end
-            end,
-            desc = "Code Actions",
-            mode = { "n", "v" },
-        },
     },
     opts = function(_, conf)
         conf.defaults = vim.tbl_deep_extend("force", conf.defaults or {}, {
@@ -31,10 +18,10 @@ return {
                 },
             },
             file_ignore_patterns = {
-                "target", -- Ignorar a pasta `target`
-                "%.class", -- Ignorar arquivos `.class`
-                "%.git", -- Ignorar arquivos `.git`
-                "%.jar", -- Ignorar arquivos `.jar`
+                "target",
+                "%.class",
+                "%.git",
+                "%.jar",
             },
         })
 
