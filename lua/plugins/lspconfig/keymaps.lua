@@ -7,30 +7,18 @@ function M.on_attach(client, bufnr)
         vim.keymap.set(mode, lhs, rhs, opts)
     end
 
-    -- Navigation mappings
-    map("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
-    map("n", "gr", vim.lsp.buf.references, { desc = "References" })
-    map("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
-    map("n", "gy", vim.lsp.buf.type_definition, { desc = "Goto Type Definition" })
-    map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+    map({ "n", "v" }, "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+    map({ "n", "v" }, "gr", vim.lsp.buf.references, { desc = "References" })
+    map({ "n", "v" }, "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
+    map({ "n", "v" }, "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 
-    -- Documentation and help
-    map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
-    map("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
-    map("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help (Insert Mode)" })
+    map({ "n", "v" }, "K", vim.lsp.buf.hover, { desc = "Hover" })
+    map({ "n", "v" }, "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
 
-    -- Code actions and refactoring
-    map({ "n", "v" }, "<leader>ca", function()
-        vim.lsp.buf.code_action()
-    end, { desc = "Code Action" })
-    map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+    map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+    map({ "n", "v" }, "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+    map({ "n", "v" }, "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, { desc = "Format Code" })
 
-    -- Formatting mappings
-    map({ "n", "v" }, "<leader>cf", function()
-        vim.lsp.buf.format({ async = true })
-    end, { desc = "Format Code" })
-
-    -- Chama o on_attach padrão do nvchad
     require("nvchad.configs.lspconfig").on_attach(client, bufnr)
 end
 
