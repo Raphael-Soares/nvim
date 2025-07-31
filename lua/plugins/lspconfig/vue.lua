@@ -1,5 +1,4 @@
--- Reference:
--- https://github.com/vuejs/language-tools/wiki/Neovim#vue-2-support
+-- Reference: https://github.com/vuejs/language-tools/wiki/Neovim#vue-2-support
 local M = {}
 
 M.vtsls = function()
