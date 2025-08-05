@@ -1,6 +1,9 @@
 local map = vim.keymap.set
 local buffer = require("nvchad.tabufline")
 
+local discipline = require("configs.discipline")
+discipline.cowboy()
+
 -- General
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("n", "<C-a>", "gg<S-v>G", { desc = "Select All" })
