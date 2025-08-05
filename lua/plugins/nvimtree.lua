@@ -35,9 +35,7 @@ return {
             end
 
             vim.keymap.set("n", "h", lefty, opts)
-            vim.keymap.set("n", "<Left>", lefty, opts)
             vim.keymap.set("n", "l", righty, opts)
-            vim.keymap.set("n", "<Right>", righty, opts)
         end
 
         dofile(vim.g.base46_cache .. "nvimtree")
