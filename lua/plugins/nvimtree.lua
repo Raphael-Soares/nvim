@@ -18,7 +18,6 @@ return {
 
                 if node.nodes and node.open then
                     api.node.open.edit()
-
                 else
                     api.node.navigate.parent()
                     api.node.open.edit()
@@ -31,7 +30,7 @@ return {
                     return
                 end
 
-                    api.node.open.edit()
+                api.node.open.edit()
             end
 
             vim.keymap.set("n", "h", lefty, opts)
@@ -42,6 +41,10 @@ return {
 
         require("nvim-tree").setup({
             on_attach = custom_on_attach,
+            view = {
+                width = 55,
+                preserve_window_proportions = true,
+            },
             renderer = {
                 root_folder_label = false,
                 highlight_git = true,

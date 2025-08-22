@@ -16,8 +16,10 @@ function M.on_attach(client, bufnr)
     map({ "n", "v" }, "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
 
     map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-    map({ "n", "v" }, "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
-    map({ "n", "v" }, "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, { desc = "Format Code" })
+    map({ "n", "v" }, "<leader>cr", require("nvchad.lsp.renamer"), { desc = "Code Rename" })
+    map({ "n", "v" }, "<leader>cf", function()
+        require("conform").format({ async = true, lsp_fallback = true })
+    end, { desc = "Format Code" })
 
     require("nvchad.configs.lspconfig").on_attach(client, bufnr)
 end

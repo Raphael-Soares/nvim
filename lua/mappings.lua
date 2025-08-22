@@ -36,13 +36,19 @@ map("n", "<leader>fs", "<cmd>Telescope git_status<CR>", { desc = "telescope git 
 map("n", "<leader>fr", function()
     require("telescope.builtin").oldfiles({ cwd_only = true, prompt_title = "Recent Files" })
 end, { desc = "telescope recent files" })
+map(
+    "n",
+    "<leader>fa",
+    "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+    { desc = "telescope find all files" }
+)
 
 -- Buffer management
 map("n", "<S-l>", function()
-    require("nvchad.tabufline").next()
+    buffer.next()
 end, { desc = "Previous Buffer" })
 map("n", "<S-h>", function()
-    require("nvchad.tabufline").prev()
+    buffer.prev()
 end, { desc = "Next Buffer" })
 map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
@@ -56,7 +62,6 @@ end, { desc = "Delete Other Buffers" })
 map("n", "<leader>ba", function()
     buffer.closeAllBufs()
 end, { desc = "Delete All Buffers" })
-
 
 -- Disabled mappings
 -- nomap("n", "<leader>bn")
