@@ -4,9 +4,10 @@ M.setup = function()
     require("nvchad.configs.lspconfig").defaults()
 
     local nvlsp = require("nvchad.configs.lspconfig")
-    local keymaps = require("plugins.lspconfig.keymaps")
-    local clangd_config = require("plugins.lspconfig.clang")
-    local vue_configs = require("plugins.lspconfig.vue")
+    local keymaps = require("configs.lsp.mappings")
+
+    local clangd_config = require("configs.lsp.lang.clang")
+    local vue_configs = require("configs.lsp.lang.vue")
 
     local servers = {
         "lua_ls",

@@ -10,7 +10,7 @@ function M.config()
             "--header-insertion=never",
             "--offset-encoding=utf-16",
         },
-        on_attach = require("plugins.lspconfig.keymaps").on_attach,
+        on_attach = require("configs.lsp.mappings").on_attach,
         on_init = require("nvchad.configs.lspconfig").on_init,
         capabilities = require("nvchad.configs.lspconfig").capabilities,
     }

@@ -3,7 +3,7 @@ local M = {}
 
 M.vtsls = function()
     require("nvchad.configs.lspconfig").defaults()
-    local keymaps = require("plugins.lspconfig.keymaps")
+    local keymaps = require("configs.lsp.mappings")
     local nvlsp = require("nvchad.configs.lspconfig")
 
     local vue_language_server_path = vim.fn.stdpath("data")
@@ -34,7 +34,7 @@ end
 
 M.vue_ls = function()
     require("nvchad.configs.lspconfig").defaults()
-    local keymaps = require("plugins.lspconfig.keymaps")
+    local keymaps = require("configs.lsp.mappings")
     local nvlsp = require("nvchad.configs.lspconfig")
 
     return {
