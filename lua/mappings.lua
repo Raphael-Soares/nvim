@@ -3,11 +3,10 @@ local buffer = require("nvchad.tabufline")
 
 -- General
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
-map("n", "<C-a>", "gg<S-v>G", { desc = "Select All" })
+map("n", "C-a", "gg<S-v>G", { desc = "Select All" })
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
--- Window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
@@ -18,14 +17,16 @@ map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down and Center" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up and Center" })
 
 -- Line movement
-map({ "n" }, "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Line Down" })
-map({ "n" }, "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Line Up" })
 
+map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Line Down" })
+map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Line Up" })
+map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Selection Down" })
+map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Selection Up" })
 -- File explorer
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 
 -- Telescope
-map("n", "<leader><leader>", "<cmd>Telescope find_files hidden=true<CR>", { desc = "Telescope find Files" })
+map("n", "<leader><leader>", "<cmd>Telescope find_files<CR>", { desc = "Telescope find Files" })
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Telescope live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
@@ -50,25 +51,16 @@ end, { desc = "Previous Buffer" })
 map("n", "<S-h>", function()
     buffer.prev()
 end, { desc = "Next Buffer" })
-map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
-map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 map("n", "<leader>bd", function()
     buffer.close_buffer()
 end, { desc = "Delete Buffer" })
+
 map("n", "<leader>bo", function()
     buffer.closeBufs_at_direction("left")
     buffer.closeBufs_at_direction("right")
 end, { desc = "Delete Other Buffers" })
+
 map("n", "<leader>ba", function()
     buffer.closeAllBufs()
 end, { desc = "Delete All Buffers" })
 
--- Disabled mappings
--- nomap("n", "<leader>bn")
--- nomap("n", "<leader>v")
--- nomap("n", "<leader>h")
--- nomap("n", "<leader>x")
--- nomap("n", "<leader>ch")
--- nomap("n", "<leader>cm")
--- nomap({"n", "v"}, "<leader>fm")
--- nomap("n", "<A-h>")

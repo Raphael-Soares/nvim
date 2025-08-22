@@ -8,3 +8,4 @@ o.softtabstop = 2
 o.number = true
 o.relativenumber = true
 o.swapfile = false
+o.scrolloff = 10
