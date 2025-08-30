@@ -56,11 +56,9 @@ map("n", "<leader>bd", function()
 end, { desc = "Delete Buffer" })
 
 map("n", "<leader>bo", function()
-    buffer.closeBufs_at_direction("left")
-    buffer.closeBufs_at_direction("right")
+    buffer.closeAllBufs(false)
 end, { desc = "Delete Other Buffers" })
 
 map("n", "<leader>ba", function()
     buffer.closeAllBufs()
 end, { desc = "Delete All Buffers" })
-

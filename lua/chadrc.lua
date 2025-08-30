@@ -10,20 +10,22 @@ M.base46 = {
     },
 }
 
--- UI Config (e.g., statusline)
 M.ui = {
     statusline = {
         order = {
             "mode",
             "file",
-            "git",
+            "diagnostics",
             "%=",
             "lsp_msg",
             "%=",
-            "diagnostics",
-            "lsp",
+            "git",
             "cwd",
         },
+    },
+
+    tabufline = {
+        order = { "treeOffset", "buffers", "tabs" },
     },
 }
 
