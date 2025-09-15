@@ -6,12 +6,7 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("n", "C-a", "gg<S-v>G", { desc = "Select All" })
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
-
-map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
-
+--
 -- Scrolling
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down and Center" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up and Center" })

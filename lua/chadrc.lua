@@ -12,6 +12,9 @@ M.base46 = {
 
 M.ui = {
     statusline = {
+        modules = {
+            venv = require("venv-selector.statusline.nvchad").render,
+        },
         order = {
             "mode",
             "file",
@@ -20,13 +23,30 @@ M.ui = {
             "%=",
             "diagnostics",
             "lsp_msg",
+            "venv",
             "lsp",
             "cwd",
         },
     },
 
     tabufline = {
+        enabled = false,
         order = { "treeOffset", "buffers", "tabs" },
+    },
+    mason = {
+        pkgs = {
+            "lua_ls",
+            "html",
+            "cssls",
+            "clangd",
+            "pyright",
+            "tailwindcss",
+            "vtsls",
+            "vue_ls",
+            "jsonls",
+            "eslint",
+        },
+        skip = {},
     },
 }
 
