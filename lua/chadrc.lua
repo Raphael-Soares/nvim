@@ -1,7 +1,6 @@
 ---@type ChadrcConfig
 local M = {}
 
--- Theme and highlights
 M.base46 = {
     theme = "gruvchad",
     hl_override = {
@@ -10,43 +9,27 @@ M.base46 = {
     },
 }
 
+local st = require("configs.statusline")
+
 M.ui = {
     statusline = {
         modules = {
-            venv = require("venv-selector.statusline.nvchad").render,
+            git_branch = st.git_branch,
+            lsp = st.lsp,
         },
+        separator_style = "block",
         order = {
             "mode",
             "file",
-            "git",
             "%=",
-            "%=",
-            "diagnostics",
             "lsp_msg",
-            "venv",
             "lsp",
-            "cwd",
+            "git_branch",
         },
     },
-
     tabufline = {
         enabled = false,
         order = { "treeOffset", "buffers", "tabs" },
-    },
-    mason = {
-        pkgs = {
-            "lua_ls",
-            "html",
-            "cssls",
-            "clangd",
-            "pyright",
-            "tailwindcss",
-            "vtsls",
-            "vue_ls",
-            "jsonls",
-            "eslint",
-        },
-        skip = {},
     },
 }
 

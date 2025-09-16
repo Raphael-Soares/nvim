@@ -1,12 +1,11 @@
 local map = vim.keymap.set
-local buffer = require("nvchad.tabufline")
 
 -- General
-map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
-map("n", "C-a", "gg<S-v>G", { desc = "Select All" })
-map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+map("n", "<leader>a", "gg<S-v>G", { desc = "Select All" })
+map("n", "<leader>q", "<cmd>quit<CR>", { desc = "Quit" })
+map("n", "<C-s>", "<cmd>write<CR>", { desc = "Save" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
---
+
 -- Scrolling
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down and Center" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up and Center" })
@@ -17,6 +16,7 @@ map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Line
 map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Line Up" })
 map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Selection Down" })
 map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Selection Up" })
+
 -- File explorer
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 
@@ -27,8 +27,6 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "telescope find bu
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 map("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
-map("n", "<leader>fc", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
-map("n", "<leader>fs", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>fr", function()
     require("telescope.builtin").oldfiles({ cwd_only = true, prompt_title = "Recent Files" })
 end, { desc = "telescope recent files" })
@@ -38,22 +36,3 @@ map(
     "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
     { desc = "telescope find all files" }
 )
-
--- Buffer management
-map("n", "<S-l>", function()
-    buffer.next()
-end, { desc = "Previous Buffer" })
-map("n", "<S-h>", function()
-    buffer.prev()
-end, { desc = "Next Buffer" })
-map("n", "<leader>bd", function()
-    buffer.close_buffer()
-end, { desc = "Delete Buffer" })
-
-map("n", "<leader>bo", function()
-    buffer.closeAllBufs(false)
-end, { desc = "Delete Other Buffers" })
-
-map("n", "<leader>ba", function()
-    buffer.closeAllBufs()
-end, { desc = "Delete All Buffers" })

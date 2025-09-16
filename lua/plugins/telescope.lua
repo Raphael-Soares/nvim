@@ -1,8 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
-    dependencies = {
-        "nvim-telescope/telescope-ui-select.nvim",
-    },
+    dependencies = { "nvim-telescope/telescope-ui-select.nvim" },
     opts = function(_, conf)
         conf.defaults.mappings.i = {
             ["<C-k>"] = require("telescope.actions").move_selection_previous,
@@ -67,7 +65,6 @@ return {
 
         conf.defaults.hidden = true
 
-        -- 🔑 Adiciona a extensão ui-select
         conf.extensions = {
             ["ui-select"] = {
                 require("telescope.themes").get_dropdown({}),

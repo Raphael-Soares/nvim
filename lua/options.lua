@@ -9,6 +9,7 @@ o.number = true
 o.relativenumber = true
 o.swapfile = false
 o.scrolloff = 10
+o.signcolumn = 'yes'
 
 o.foldmethod = "expr"
 o.foldexpr = "nvim_treesitter#foldexpr()"

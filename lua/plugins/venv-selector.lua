@@ -8,10 +8,4 @@ return {
     keys = {
         { "<leader>cv", "<cmd>VenvSelect<cr>" }, -- Open picker on keymap
     },
-    opts = { -- this can be an empty lua table - just showing below for clarity.
-        search = {
-            cwd = true,
-        },
-        options = {}, -- if you add plugin options, they go here.
-    },
 }
