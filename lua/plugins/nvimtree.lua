@@ -51,14 +51,14 @@ return {
                 highlight_git = true,
                 indent_markers = { enable = true },
             },
-            -- A mágica que você quer:
+
             update_focused_file = {
-                enable = true, -- sempre mantém o NvimTree focado no arquivo atual
-                update_cwd = true, -- opcional: muda o CWD para o do arquivo
+                enable = true,
+                update_cwd = true,
             },
             hijack_directories = {
                 enable = true,
-                auto_open = true, -- abre NvimTree quando abrir uma pasta
+                auto_open = true,
             },
         })
     end,

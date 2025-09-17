@@ -10,6 +10,7 @@ local separators = {
 local sep_l = separators["block"].left
 local sep_r = separators["block"].right
 
+-- buffer atual do statusline
 local function stbufnr()
     return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
 end
@@ -23,12 +24,13 @@ local function lsp_message()
             end
         end
     end
+    return " "
 end
 
 -- módulo LSP
 M.lsp = function()
     if lsp_message() then
-        return "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#LSP " .. "%#St_pos_text# " .. lsp_message() .. "%#StText#"
+        return " %#St_pos_sep#" .. sep_l .. "%#St_pos_icon#LSP " .. "%#St_pos_text# " .. lsp_message() .. "%#StText#"
     end
     return ""
 end

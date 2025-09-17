@@ -17,7 +17,7 @@ M.ui = {
             git_branch = st.git_branch,
             lsp = st.lsp,
         },
-        separator_style = "block",
+        separator_style = "default",
         order = {
             "mode",
             "file",
